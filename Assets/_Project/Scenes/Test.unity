@@ -251,6 +251,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1157227805}
+  - component: {fileID: 1157227807}
+  - component: {fileID: 1157227806}
+  - component: {fileID: 1157227808}
   m_Layer: 0
   m_Name: GameSystems
   m_TagString: Untagged
@@ -273,6 +276,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1157227806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157227804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c66bb1fee884a8bb39cb67bfcfa0a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Core.TestFlowManager
+  miniGameRunner: {fileID: 1157227807}
+  dataLogger: {fileID: 1157227808}
+  dummyMiniGameConfig: {fileID: 11400000, guid: 97ce6d1e2f7d741d488e72c5635f536c, type: 2}
+  dummyDifficultyConfig: {fileID: 0}
+--- !u!114 &1157227807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157227804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb4c7894d10c4c978e3719feb92066ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.MiniGames.Common.MiniGameRunner
+  miniGameParent: {fileID: 1199194571}
+  dataLogger: {fileID: 0}
+--- !u!114 &1157227808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157227804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4087376d15e241d6bca50684467bcad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Data.DataLogger
 --- !u!1 &1199194570
 GameObject:
   m_ObjectHideFlags: 0

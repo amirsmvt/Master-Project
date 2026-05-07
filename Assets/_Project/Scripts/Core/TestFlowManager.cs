@@ -1,3 +1,4 @@
+using NeuroQuest.Data;
 using NeuroQuest.MiniGames.Common;
 using UnityEngine;
 
@@ -7,9 +8,11 @@ namespace NeuroQuest.Core
     {
         [Header("References")]
         [SerializeField] private MiniGameRunner miniGameRunner;
+        [SerializeField] private DataLogger dataLogger;
 
         [Header("Test Config")]
         [SerializeField] private MiniGameConfig dummyMiniGameConfig;
+        [SerializeField] private DifficultyConfig dummyDifficultyConfig;
 
         private void Start()
         {
@@ -19,15 +22,33 @@ namespace NeuroQuest.Core
                 return;
             }
 
+            if (dataLogger == null)
+            {
+                Debug.LogError("TestFlowManager: DataLogger is not assigned.");
+                return;
+            }
+
             if (dummyMiniGameConfig == null)
             {
                 Debug.LogError("TestFlowManager: DummyMiniGameConfig is not assigned.");
                 return;
             }
 
+            if (dummyDifficultyConfig == null)
+            {
+                Debug.LogError("TestFlowManager: DummyDifficultyConfig is not assigned.");
+                return;
+            }
+
+            dataLogger.SetParticipantInfo("P001", "test");
+
             Debug.Log("TestFlowManager: Starting dummy mini game...");
 
-            miniGameRunner.RunMiniGame(dummyMiniGameConfig, OnMiniGameCompleted);
+            miniGameRunner.RunMiniGame(
+                dummyMiniGameConfig,
+                dummyDifficultyConfig,
+                OnMiniGameCompleted
+            );
         }
 
         private void OnMiniGameCompleted(MiniGameResult result)
@@ -41,6 +62,8 @@ namespace NeuroQuest.Core
             {
                 Debug.Log($"Extra Data | {item.Key}: {item.Value}");
             }
+
+            dataLogger.PrintSessionSummary();
         }
     }
 }
