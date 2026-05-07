@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dcb2a53f461448d95e05c723e76c378, type: 3}
+  m_Name: DummyMiniGameConfig
+  m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.MiniGames.Common.MiniGameConfig
+  miniGameId: dummy
+  displayName: Dummy Mini Game
+  miniGamePrefab: {fileID: 4643448796702188337, guid: 8188d8034ca1148b99aa0f9b85885afd, type: 3}
