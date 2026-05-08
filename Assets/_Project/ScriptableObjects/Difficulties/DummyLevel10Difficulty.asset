@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed577ee0459148dd8d63b77ff4298e30, type: 3}
   m_Name: DummyLevel10Difficulty
   m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.MiniGames.Common.DifficultyConfig
-  difficultyId: easy
-  levelNumber: 0
-  displayName: Easy
-  categoryLabel: 
+  difficultyId: dummy_level_10
+  levelNumber: 10
+  displayName: "\u0645\u0631\u062D\u0644\u0647 \u06F1\u06F0"
+  categoryLabel: "\u062A\u0645\u0631\u06CC\u0646\u06CC"
   parameters:
   - key: finishDelay
     value: 2

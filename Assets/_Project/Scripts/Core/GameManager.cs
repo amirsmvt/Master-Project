@@ -9,12 +9,13 @@ namespace NeuroQuest.Core
     {
         [Header("Core References")]
         [SerializeField] private NeuroQuestDatabase database;
+        [SerializeField] private AssessmentProfile activeProfile;
         [SerializeField] private MiniGameRunner miniGameRunner;
         [SerializeField] private DataLogger dataLogger;
 
         [Header("Temporary Test Settings")]
         [SerializeField] private string testMiniGameId = "dummy";
-        [SerializeField] private string testDifficultyId = "dummy_level_10";
+        [SerializeField] private int testLevelNumber = 10;
 
         private void Awake()
         {
@@ -30,13 +31,29 @@ namespace NeuroQuest.Core
 
             dataLogger.SetParticipantInfo("P001", "test");
 
-            RunMiniGameById(testMiniGameId, testDifficultyId);
+            dataLogger.LogSimpleEvent(
+                "assessment_profile_selected",
+                "",
+                "",
+                Field.Of("profileId", activeProfile.ProfileId),
+                Field.Of("profileName", activeProfile.DisplayName)
+            );
+
+            RunMiniGameByLevel(testMiniGameId, testLevelNumber);
         }
 
-        public void RunMiniGameById(string miniGameId, string difficultyId)
+        public void RunMiniGameByLevel(string miniGameId, int levelNumber)
         {
-            MiniGameConfig miniGameConfig = database.GetMiniGameById(miniGameId);
-            DifficultyConfig difficultyConfig = database.GetDifficultyById(difficultyId);
+            MiniGameConfig miniGameConfig = database.GetMiniGameConfigById(
+                miniGameId,
+                activeProfile
+            );
+
+            DifficultyConfig difficultyConfig = database.GetDifficultyByLevel(
+                miniGameId,
+                levelNumber,
+                activeProfile
+            );
 
             if (miniGameConfig == null || difficultyConfig == null)
             {
@@ -49,9 +66,10 @@ namespace NeuroQuest.Core
                 miniGameConfig.MiniGameId,
                 difficultyConfig.DifficultyId,
                 Field.Of("miniGameName", miniGameConfig.DisplayName),
-                Field.Of("difficultyName", difficultyConfig.DisplayName),
                 Field.Of("levelNumber", difficultyConfig.LevelNumber),
-                Field.Of("categoryLabel", difficultyConfig.CategoryLabel)
+                Field.Of("difficultyName", difficultyConfig.DisplayName),
+                Field.Of("categoryLabel", difficultyConfig.CategoryLabel),
+                Field.Of("profileId", activeProfile.ProfileId)
             );
 
             miniGameRunner.RunMiniGame(
@@ -81,6 +99,12 @@ namespace NeuroQuest.Core
             if (database == null)
             {
                 Debug.LogError("GameManager: NeuroQuestDatabase is not assigned.");
+                return false;
+            }
+
+            if (activeProfile == null)
+            {
+                Debug.LogError("GameManager: AssessmentProfile is not assigned.");
                 return false;
             }
 

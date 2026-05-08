@@ -7,13 +7,12 @@ namespace NeuroQuest.Core
     [CreateAssetMenu(menuName = "NeuroQuest/Database")]
     public class NeuroQuestDatabase : ScriptableObject
     {
-        [Header("Mini Games")]
-        [SerializeField] private List<MiniGameConfig> miniGameConfigs = new();
+        [Header("Mini Game Definitions")]
+        [SerializeField] private List<MiniGameDefinition> miniGameDefinitions = new();
 
-        [Header("Difficulties")]
-        [SerializeField] private List<DifficultyConfig> difficultyConfigs = new();
-
-        public MiniGameConfig GetMiniGameById(string miniGameId)
+        public MiniGameDefinition GetMiniGameDefinitionById(
+            string miniGameId,
+            AssessmentProfile profile = null)
         {
             if (string.IsNullOrWhiteSpace(miniGameId))
             {
@@ -21,42 +20,73 @@ namespace NeuroQuest.Core
                 return null;
             }
 
-            MiniGameConfig config = miniGameConfigs.Find(item => item.MiniGameId == miniGameId);
+            MiniGameDefinition definition = miniGameDefinitions.Find(item =>
+                item != null &&
+                item.MiniGameConfig != null &&
+                item.MiniGameId == miniGameId
+            );
 
-            if (config == null)
+            if (definition == null)
             {
-                Debug.LogError($"NeuroQuestDatabase: MiniGameConfig not found for id: {miniGameId}");
-            }
-
-            return config;
-        }
-
-        public DifficultyConfig GetDifficultyById(string difficultyId)
-        {
-            if (string.IsNullOrWhiteSpace(difficultyId))
-            {
-                Debug.LogError("NeuroQuestDatabase: DifficultyId is null or empty.");
+                Debug.LogError($"NeuroQuestDatabase: MiniGameDefinition not found for id: {miniGameId}");
                 return null;
             }
 
-            DifficultyConfig config = difficultyConfigs.Find(item => item.DifficultyId == difficultyId);
-
-            if (config == null)
+            if (!definition.SupportsProfile(profile))
             {
-                Debug.LogError($"NeuroQuestDatabase: DifficultyConfig not found for id: {difficultyId}");
+                string profileName = profile != null ? profile.DisplayName : "None";
+
+                Debug.LogError(
+                    $"NeuroQuestDatabase: MiniGame '{miniGameId}' is not enabled for profile: {profileName}"
+                );
+
+                return null;
             }
 
-            return config;
+            return definition;
         }
 
-        public bool HasMiniGame(string miniGameId)
+        public MiniGameConfig GetMiniGameConfigById(
+            string miniGameId,
+            AssessmentProfile profile = null)
         {
-            return miniGameConfigs.Exists(item => item.MiniGameId == miniGameId);
+            MiniGameDefinition definition = GetMiniGameDefinitionById(miniGameId, profile);
+            return definition != null ? definition.MiniGameConfig : null;
         }
 
-        public bool HasDifficulty(string difficultyId)
+        public DifficultyConfig GetDifficultyByLevel(
+            string miniGameId,
+            int levelNumber,
+            AssessmentProfile profile = null)
         {
-            return difficultyConfigs.Exists(item => item.DifficultyId == difficultyId);
+            MiniGameDefinition definition = GetMiniGameDefinitionById(miniGameId, profile);
+
+            if (definition == null)
+            {
+                return null;
+            }
+
+            return definition.GetDifficultyByLevel(levelNumber);
+        }
+
+        public List<MiniGameDefinition> GetEnabledMiniGameDefinitions(AssessmentProfile profile)
+        {
+            List<MiniGameDefinition> enabledDefinitions = new();
+
+            foreach (MiniGameDefinition definition in miniGameDefinitions)
+            {
+                if (definition == null || definition.MiniGameConfig == null)
+                {
+                    continue;
+                }
+
+                if (definition.SupportsProfile(profile))
+                {
+                    enabledDefinitions.Add(definition);
+                }
+            }
+
+            return enabledDefinitions;
         }
     }
 }

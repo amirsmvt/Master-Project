@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ed798ad0cb94d7a89f4d19865b931b4, type: 3}
-  m_Name: NeuroQuestDatabase
-  m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Core.NeuroQuestDatabase
-  miniGameDefinitions: []
+  m_Script: {fileID: 11500000, guid: b137c24a371b4d499ebcead06146c86a, type: 3}
+  m_Name: AutismOnlyProfile
+  m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Core.AssessmentProfile
+  profileId: autism_only
+  displayName: Autism Only
+  enabledDomains: 01000000
