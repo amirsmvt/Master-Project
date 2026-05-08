@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab47a217bc8d4a798e4704353784f91f, type: 3}
   m_Name: DummyDefinition
   m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.MiniGames.Common.MiniGameDefinition
-  miniGameConfig: {fileID: 0}
-  supportedDomains: 
-  difficulties: []
-  description: 
+  miniGameConfig: {fileID: 11400000, guid: 97ce6d1e2f7d741d488e72c5635f536c, type: 2}
+  supportedDomains: 0200000000000000
+  difficulties:
+  - {fileID: 11400000, guid: 3194b15f0c1c7445180e7a257c17d050, type: 2}
+  description: Dummy mini game used for testing the NeuroQuest mini game pipeline.

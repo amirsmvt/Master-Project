@@ -17,19 +17,29 @@ namespace NeuroQuest.Core
         [SerializeField] private string testMiniGameId = "dummy";
         [SerializeField] private int testLevelNumber = 10;
 
+        private bool sessionStarted;
+
         private void Awake()
         {
             ServiceLocator.Register(this);
         }
 
-        private void Start()
+        public void StartGameSession(string participantId, string groupLabel)
         {
             if (!ValidateReferences())
             {
                 return;
             }
 
-            dataLogger.SetParticipantInfo("P001", "test");
+            if (sessionStarted)
+            {
+                Debug.LogWarning("GameManager: Session already started.");
+                return;
+            }
+
+            sessionStarted = true;
+
+            dataLogger.SetParticipantInfo(participantId, groupLabel);
 
             dataLogger.LogSimpleEvent(
                 "assessment_profile_selected",
@@ -39,11 +49,27 @@ namespace NeuroQuest.Core
                 Field.Of("profileName", activeProfile.DisplayName)
             );
 
+            Debug.Log("GameManager: Game session started.");
+        }
+
+        public void RunConfiguredTestMiniGame()
+        {
+            if (!sessionStarted)
+            {
+                Debug.LogError("GameManager: Cannot run mini game before session starts.");
+                return;
+            }
+
             RunMiniGameByLevel(testMiniGameId, testLevelNumber);
         }
 
         public void RunMiniGameByLevel(string miniGameId, int levelNumber)
         {
+            if (!ValidateReferences())
+            {
+                return;
+            }
+
             MiniGameConfig miniGameConfig = database.GetMiniGameConfigById(
                 miniGameId,
                 activeProfile

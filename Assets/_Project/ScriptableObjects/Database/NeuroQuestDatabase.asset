@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed798ad0cb94d7a89f4d19865b931b4, type: 3}
   m_Name: NeuroQuestDatabase
   m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Core.NeuroQuestDatabase
-  miniGameDefinitions: []
+  miniGameDefinitions:
+  - {fileID: 11400000, guid: 8a97df3fbeb314706a995a3c97391780, type: 2}
