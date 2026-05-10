@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using NeuroQuest.MiniGames.Common;
+using NeuroQuest.Story;
 using UnityEngine;
 
 namespace NeuroQuest.Core
@@ -9,6 +10,9 @@ namespace NeuroQuest.Core
     {
         [Header("Mini Game Definitions")]
         [SerializeField] private List<MiniGameDefinition> miniGameDefinitions = new();
+
+        [Header("Story Scenarios")]
+        [SerializeField] private List<StoryScenario> storyScenarios = new();
 
         public MiniGameDefinition GetMiniGameDefinitionById(
             string miniGameId,
@@ -87,6 +91,27 @@ namespace NeuroQuest.Core
             }
 
             return enabledDefinitions;
+        }
+
+        public StoryScenario GetStoryScenarioById(string scenarioId)
+        {
+            if (string.IsNullOrWhiteSpace(scenarioId))
+            {
+                Debug.LogError("NeuroQuestDatabase: ScenarioId is null or empty.");
+                return null;
+            }
+
+            StoryScenario scenario = storyScenarios.Find(item =>
+                item != null &&
+                item.ScenarioId == scenarioId
+            );
+
+            if (scenario == null)
+            {
+                Debug.LogError($"NeuroQuestDatabase: StoryScenario not found for id: {scenarioId}");
+            }
+
+            return scenario;
         }
     }
 }

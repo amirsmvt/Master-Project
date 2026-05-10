@@ -1,6 +1,8 @@
+using System;
 using NeuroQuest.Data;
 using NeuroQuest.MiniGames.Common;
 using NeuroQuest.Services;
+using NeuroQuest.Story;
 using UnityEngine;
 
 namespace NeuroQuest.Core
@@ -12,10 +14,10 @@ namespace NeuroQuest.Core
         [SerializeField] private AssessmentProfile activeProfile;
         [SerializeField] private MiniGameRunner miniGameRunner;
         [SerializeField] private DataLogger dataLogger;
+        [SerializeField] private StoryRunner storyRunner;
 
-        [Header("Temporary Test Settings")]
-        [SerializeField] private string testMiniGameId = "dummy";
-        [SerializeField] private int testLevelNumber = 10;
+        [Header("Story Settings")]
+        [SerializeField] private StoryScenario startingScenario;
 
         private bool sessionStarted;
 
@@ -24,9 +26,29 @@ namespace NeuroQuest.Core
             ServiceLocator.Register(this);
         }
 
+        private void ResolveServices()
+        {
+            if (miniGameRunner == null)
+            {
+                miniGameRunner = ServiceLocator.Get<MiniGameRunner>();
+            }
+
+            if (dataLogger == null)
+            {
+                dataLogger = ServiceLocator.Get<DataLogger>();
+            }
+
+            if (storyRunner == null)
+            {
+                storyRunner = ServiceLocator.Get<StoryRunner>();
+            }
+        }
+
         public void StartGameSession(string participantId, string groupLabel)
         {
-            if (!ValidateReferences())
+            ResolveServices();
+
+            if (!ValidateCoreReferences())
             {
                 return;
             }
@@ -52,34 +74,70 @@ namespace NeuroQuest.Core
             Debug.Log("GameManager: Game session started.");
         }
 
-        public void RunConfiguredTestMiniGame()
+        public void StartStory()
         {
             if (!sessionStarted)
             {
-                Debug.LogError("GameManager: Cannot run mini game before session starts.");
+                Debug.LogError("GameManager: Cannot start story before session starts.");
                 return;
             }
 
-            RunMiniGameByLevel(testMiniGameId, testLevelNumber);
+            if (startingScenario == null)
+            {
+                Debug.LogError("GameManager: StartingScenario is not assigned.");
+                return;
+            }
+
+            StartStory(startingScenario);
         }
 
-        public void RunMiniGameByLevel(string miniGameId, int levelNumber)
+        public void StartStory(StoryScenario scenario)
         {
-            if (!ValidateReferences())
+            ResolveServices();
+
+            if (!sessionStarted)
+            {
+                Debug.LogError("GameManager: Cannot start story before session starts.");
+                return;
+            }
+
+            if (storyRunner == null)
+            {
+                Debug.LogError("GameManager: StoryRunner is not assigned and not registered.");
+                return;
+            }
+
+            storyRunner.StartStory(scenario);
+        }
+
+        public void RunMiniGame(
+            MiniGameDefinition miniGameDefinition,
+            int levelNumber,
+            Action<MiniGameResult> onCompleted = null)
+        {
+            ResolveServices();
+
+            if (!ValidateCoreReferences())
             {
                 return;
             }
 
-            MiniGameConfig miniGameConfig = database.GetMiniGameConfigById(
-                miniGameId,
-                activeProfile
-            );
+            if (miniGameDefinition == null)
+            {
+                Debug.LogError("GameManager: MiniGameDefinition is null.");
+                return;
+            }
 
-            DifficultyConfig difficultyConfig = database.GetDifficultyByLevel(
-                miniGameId,
-                levelNumber,
-                activeProfile
-            );
+            if (!miniGameDefinition.SupportsProfile(activeProfile))
+            {
+                Debug.LogError(
+                    $"GameManager: MiniGame '{miniGameDefinition.MiniGameId}' is not enabled for profile '{activeProfile.DisplayName}'."
+                );
+                return;
+            }
+
+            MiniGameConfig miniGameConfig = miniGameDefinition.MiniGameConfig;
+            DifficultyConfig difficultyConfig = miniGameDefinition.GetDifficultyByLevel(levelNumber);
 
             if (miniGameConfig == null || difficultyConfig == null)
             {
@@ -101,7 +159,11 @@ namespace NeuroQuest.Core
             miniGameRunner.RunMiniGame(
                 miniGameConfig,
                 difficultyConfig,
-                OnMiniGameCompleted
+                result =>
+                {
+                    OnMiniGameCompleted(result);
+                    onCompleted?.Invoke(result);
+                }
             );
         }
 
@@ -116,11 +178,9 @@ namespace NeuroQuest.Core
             {
                 Debug.Log($"Extra Data | {item.Key}: {item.Value}");
             }
-
-            dataLogger.PrintSessionSummary();
         }
 
-        private bool ValidateReferences()
+        private bool ValidateCoreReferences()
         {
             if (database == null)
             {
@@ -136,13 +196,13 @@ namespace NeuroQuest.Core
 
             if (miniGameRunner == null)
             {
-                Debug.LogError("GameManager: MiniGameRunner is not assigned.");
+                Debug.LogError("GameManager: MiniGameRunner is not assigned and not registered.");
                 return false;
             }
 
             if (dataLogger == null)
             {
-                Debug.LogError("GameManager: DataLogger is not assigned.");
+                Debug.LogError("GameManager: DataLogger is not assigned and not registered.");
                 return false;
             }
 

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66cef5fc4def4a0392885d18d56e12fe, type: 3}
+  m_Name: EndingScenario
+  m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Story.StoryScenario
+  scenarioId: ending_scenario
+  displayName: Ending Scenario
+  steps:
+  - stepId: ending_dialogue
+    stepType: 0
+    dialogueText: Neuro Quest hamrahe bato
+    choiceOptions: []
+    miniGameId: 
+    levelNumber: 0
+    waitDuration: 0
+    nextScenarioId: 
+  - stepId: end_story
+    stepType: 4
+    dialogueText: 
+    choiceOptions: []
+    miniGameId: 
+    levelNumber: 0
+    waitDuration: 0
+    nextScenarioId: 

@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66cef5fc4def4a0392885d18d56e12fe, type: 3}
+  m_Name: DummyScenario
+  m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Story.StoryScenario
+  scenarioId: dummy_scenario
+  displayName: Dummy Scenario
+  steps:
+  - stepId: before_dummy_dialogue
+    stepType: 0
+    dialogueText: Awli berim tamrin
+    choiceOptions: []
+    miniGameId: 
+    levelNumber: 0
+    waitDuration: 0
+    nextScenarioId: 
+  - stepId: play_dummy
+    stepType: 1
+    dialogueText: 
+    choiceOptions: []
+    miniGameId: dummy
+    levelNumber: 10
+    waitDuration: 0
+    nextScenarioId: 
+  - stepId: end_dummy
+    stepType: 4
+    dialogueText: 
+    choiceOptions: []
+    miniGameId: 
+    levelNumber: 0
+    waitDuration: 0
+    nextScenarioId: ending_scenario

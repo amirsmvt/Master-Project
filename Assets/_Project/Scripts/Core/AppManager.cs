@@ -115,7 +115,7 @@ namespace NeuroQuest.Core
             SetState(AppState.Story);
 
             gameManager.StartGameSession(testParticipantId, testGroupLabel);
-            gameManager.RunConfiguredTestMiniGame();
+            gameManager.StartStory();
         }
 
         private void SetState(AppState newState)

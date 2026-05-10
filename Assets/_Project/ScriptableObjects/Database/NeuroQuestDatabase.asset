@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Core.NeuroQuestDatabase
   miniGameDefinitions:
   - {fileID: 11400000, guid: 8a97df3fbeb314706a995a3c97391780, type: 2}
+  storyScenarios:
+  - {fileID: 11400000, guid: 1fbfae202ed264879aace4fda7e0a445, type: 2}
+  - {fileID: 11400000, guid: 6246fb59057194331b192439bd09c56a, type: 2}
+  - {fileID: 11400000, guid: d55bc132848b54f51941c1f87391be91, type: 2}
