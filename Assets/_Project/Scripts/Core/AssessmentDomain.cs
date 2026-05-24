@@ -3,7 +3,7 @@ namespace NeuroQuest.Core
     public enum AssessmentDomain
     {
         ADHD = 0,
-        Autism = 1,
+        LD = 1,
         General = 2
     }
 }   

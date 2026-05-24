@@ -2045,11 +2045,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1157227805}
   - component: {fileID: 1157227807}
-  - component: {fileID: 1157227806}
   - component: {fileID: 1157227808}
   - component: {fileID: 1157227809}
   - component: {fileID: 1157227810}
   - component: {fileID: 1157227811}
+  - component: {fileID: 1157227815}
+  - component: {fileID: 1157227814}
+  - component: {fileID: 1157227813}
+  - component: {fileID: 1157227812}
   m_Layer: 0
   m_Name: GameSystems
   m_TagString: Untagged
@@ -2072,22 +2075,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1157227806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157227804}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c66bb1fee884a8bb39cb67bfcfa0a04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Core.TestFlowManager
-  miniGameRunner: {fileID: 1157227807}
-  dataLogger: {fileID: 1157227808}
-  dummyMiniGameConfig: {fileID: 11400000, guid: 97ce6d1e2f7d741d488e72c5635f536c, type: 2}
-  dummyDifficultyConfig: {fileID: 11400000, guid: 3194b15f0c1c7445180e7a257c17d050, type: 2}
 --- !u!114 &1157227807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2131,9 +2118,7 @@ MonoBehaviour:
   miniGameRunner: {fileID: 1157227807}
   dataLogger: {fileID: 1157227808}
   storyRunner: {fileID: 1157227811}
-  startingScenarioId: intro_scenario
-  testMiniGameId: dummy
-  testLevelNumber: 10
+  startingScenario: {fileID: 11400000, guid: 09e3c3e38c39d4042bea42ab2949eae5, type: 2}
 --- !u!114 &1157227810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2147,14 +2132,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Core.AppManager
   gameManager: {fileID: 1157227809}
+  sessionManager: {fileID: 0}
   splashScreen: {fileID: 914898490}
   loadingScreen: {fileID: 387929255}
   introScreen: {fileID: 939796401}
   splashDuration: 1.5
   loadingDuration: 1.5
   introDuration: 1.5
-  testParticipantId: P001
-  testGroupLabel: test
 --- !u!114 &1157227811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2167,12 +2151,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e9106215c744ad8caf5378dd58068a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Story.StoryRunner
-  database: {fileID: 11400000, guid: e4489679eb5da468a9385de05a051b87, type: 2}
-  startingScenario: {fileID: 11400000, guid: 09e3c3e38c39d4042bea42ab2949eae5, type: 2}
   dialogueUI: {fileID: 1628943219}
   choiceUI: {fileID: 1349738283}
   gameManager: {fileID: 1157227809}
   dataLogger: {fileID: 1157227808}
+  exportManager: {fileID: 0}
+--- !u!114 &1157227812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157227804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ccbd518f5ed4349bb3c709ad74f3681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Core.SessionManager
+  gameManager: {fileID: 0}
+  dataLogger: {fileID: 0}
+  testParticipantInfo:
+    participantId: P001
+    groupLabel: test
+    age: 0
+    gender: 
+    notes: 
+--- !u!114 &1157227813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157227804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c42633df6e04b73b173b73f355e125d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Data.JsonExporter
+--- !u!114 &1157227814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157227804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8b2fb32fbb4d38aad07738a2cf26c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Data.CsvExporter
+--- !u!114 &1157227815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157227804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd19bd3a28d249cea78421dc7268b880, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Data.ExportManager
+  dataLogger: {fileID: 0}
+  jsonExporter: {fileID: 0}
+  csvExporter: {fileID: 0}
+  exportJson: 1
+  exportCsv: 1
 --- !u!1 &1170810367
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b137c24a371b4d499ebcead06146c86a, type: 3}
-  m_Name: AutismOnlyProfile
-  m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Core.AssessmentProfile
-  profileId: autism_only
-  displayName: Autism Only
-  enabledDomains: 01000000
+  m_Script: {fileID: 11500000, guid: fd23d9ce1e184902816263431ab300a9, type: 3}
+  m_Name: New Dialogue Story Step Asset
+  m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Story.DialogueStoryStepAsset
+  stepId: 
+  dialogueText: 

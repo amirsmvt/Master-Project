@@ -15,6 +15,7 @@ namespace NeuroQuest.Story
         [SerializeField] private ChoiceUI choiceUI;
         [SerializeField] private GameManager gameManager;
         [SerializeField] private DataLogger dataLogger;
+        [SerializeField] private ExportManager exportManager;
 
         private StoryScenario currentScenario;
         private int currentStepIndex;
@@ -35,6 +36,10 @@ namespace NeuroQuest.Story
             if (dataLogger == null)
             {
                 dataLogger = ServiceLocator.Get<DataLogger>();
+            }
+            if (exportManager == null)
+            {
+                exportManager = ServiceLocator.Get<ExportManager>();
             }
         }
 
@@ -223,7 +228,7 @@ namespace NeuroQuest.Story
                 {
                     string nextScenarioId = selectedOption.NextScenario != null
                         ? selectedOption.NextScenario.ScenarioId
-                        : "";
+                        : string.Empty;
 
                     dataLogger.LogSimpleEvent(
                         "story_choice_selected",
@@ -303,7 +308,7 @@ namespace NeuroQuest.Story
                 "",
                 "",
                 Field.Of("fromScenarioId", currentScenario.ScenarioId),
-                Field.Of("nextScenarioId", nextScenario != null ? nextScenario.ScenarioId : ""),
+                Field.Of("nextScenarioId", nextScenario != null ? nextScenario.ScenarioId : string.Empty),
                 Field.Of("reason", reason)
             );
 
@@ -338,6 +343,20 @@ namespace NeuroQuest.Story
 
             Debug.Log("StoryRunner: Story ended.");
             dataLogger.PrintSessionSummary();
+
+            if (exportManager == null)
+            {
+                exportManager = ServiceLocator.Get<ExportManager>();
+            }
+
+            if (exportManager != null)
+            {
+                exportManager.ExportCurrentSession();
+            }
+            else
+            {
+                Debug.LogWarning("StoryRunner: ExportManager is not assigned and not registered. Session was not exported.");
+            }
         }
 
         private bool ValidateBaseReferences()

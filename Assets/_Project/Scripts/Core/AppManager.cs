@@ -9,6 +9,7 @@ namespace NeuroQuest.Core
     {
         [Header("Core References")]
         [SerializeField] private GameManager gameManager;
+        [SerializeField] private SessionManager sessionManager;
 
         [Header("UI Screens")]
         [SerializeField] private UIScreen splashScreen;
@@ -20,10 +21,6 @@ namespace NeuroQuest.Core
         [SerializeField] private float loadingDuration = 1.5f;
         [SerializeField] private float introDuration = 1.5f;
 
-        [Header("Temporary Session Info")]
-        [SerializeField] private string testParticipantId = "P001";
-        [SerializeField] private string testGroupLabel = "test";
-
         public AppState CurrentState { get; private set; } = AppState.None;
 
         private void Awake()
@@ -33,12 +30,27 @@ namespace NeuroQuest.Core
 
         private void Start()
         {
+            ResolveServices();
+
             if (!ValidateReferences())
             {
                 return;
             }
 
             StartCoroutine(BootSequence());
+        }
+
+        private void ResolveServices()
+        {
+            if (gameManager == null)
+            {
+                gameManager = ServiceLocator.Get<GameManager>();
+            }
+
+            if (sessionManager == null)
+            {
+                sessionManager = ServiceLocator.Get<SessionManager>();
+            }
         }
 
         private IEnumerator BootSequence()
@@ -114,7 +126,7 @@ namespace NeuroQuest.Core
         {
             SetState(AppState.Story);
 
-            gameManager.StartGameSession(testParticipantId, testGroupLabel);
+            sessionManager.StartTestSession();
             gameManager.StartStory();
         }
 
@@ -146,7 +158,13 @@ namespace NeuroQuest.Core
         {
             if (gameManager == null)
             {
-                Debug.LogError("AppManager: GameManager is not assigned.");
+                Debug.LogError("AppManager: GameManager is not assigned and not registered.");
+                return false;
+            }
+
+            if (sessionManager == null)
+            {
+                Debug.LogError("AppManager: SessionManager is not assigned and not registered.");
                 return false;
             }
 
