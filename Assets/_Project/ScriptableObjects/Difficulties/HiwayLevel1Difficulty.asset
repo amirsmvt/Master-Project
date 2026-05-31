@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed577ee0459148dd8d63b77ff4298e30, type: 3}
+  m_Name: HiwayLevel1Difficulty
+  m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.MiniGames.Common.DifficultyConfig
+  difficultyId: highway_level_1
+  levelNumber: 1
+  displayName: Level 1
+  categoryLabel: highway
+  parameters:
+  - key: activeLaneCount
+    value: 4
+  - key: objectCount
+    value: 8
+  - key: ruleNumber
+    value: 1
+  - key: startSpeed
+    value: 1.5
+  - key: endSpeed
+    value: 1.5
+  - key: spawnInterval
+    value: 3
+  - key: selectedSpeedMultiplier
+    value: 1.15
+  - key: distractorsEnabled
+    value: false
+  - key: bombsEnabled
+    value: false
+  - key: bombCount
+    value: 0
