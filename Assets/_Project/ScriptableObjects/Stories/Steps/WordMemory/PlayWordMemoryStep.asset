@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68aea33edf71410db1c2b89ca2156071, type: 3}
+  m_Name: PlayWordMemoryStep
+  m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Story.MiniGameStoryStepAsset
+  stepId: play_word_memory
+  miniGameDefinition: {fileID: 11400000, guid: 87de16205e2e435d9df1f89ada78d340, type: 2}
+  levelNumber: 10

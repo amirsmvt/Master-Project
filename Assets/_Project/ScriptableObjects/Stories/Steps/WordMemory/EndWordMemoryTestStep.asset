@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c8eecfea7e41bf87a1d8f0cc91c974, type: 3}
+  m_Name: EndWordMemoryTestStep
+  m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Story.EndStoryStepAsset
+  stepId: end_word_memory_test
+  nextScenario: {fileID: 0}

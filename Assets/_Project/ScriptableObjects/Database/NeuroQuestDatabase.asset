@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: NeuroQuestDatabase
   m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Core.NeuroQuestDatabase
   miniGameDefinitions:
-  - {fileID: 11400000, guid: 8a97df3fbeb314706a995a3c97391780, type: 2}
+  - {fileID: 11400000, guid: 87de16205e2e435d9df1f89ada78d340, type: 2}
   storyScenarios:
-  - {fileID: 11400000, guid: 1fbfae202ed264879aace4fda7e0a445, type: 2}
-  - {fileID: 11400000, guid: 6246fb59057194331b192439bd09c56a, type: 2}
-  - {fileID: 11400000, guid: d55bc132848b54f51941c1f87391be91, type: 2}
+  - {fileID: 11400000, guid: 82f38fbf17de483587db61aaefef2161, type: 2}

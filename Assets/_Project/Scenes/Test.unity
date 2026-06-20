@@ -407,9 +407,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 104349567}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: b9839c2d141529145a431aef4d757ff3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_EditorClassIdentifier: RTLTMPro::RTLTMPro.RTLTextMeshPro
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -419,9 +419,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Button
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_isRightToLeft: 1
+  m_fontAsset: {fileID: 11400000, guid: cf234e2bf0ded694e9f798a33a570e1d, type: 2}
+  m_sharedMaterial: {fileID: 21898407008693888, guid: cf234e2bf0ded694e9f798a33a570e1d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -487,6 +487,11 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
+  preserveNumbers: 0
+  farsi: 1
+  originalText: Button
+  fixTags: 1
+  forceFix: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &104349570
@@ -543,9 +548,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 220804367}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: b9839c2d141529145a431aef4d757ff3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_EditorClassIdentifier: RTLTMPro::RTLTMPro.RTLTextMeshPro
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -557,9 +562,9 @@ MonoBehaviour:
   m_text: 'ssa
 
 '
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_isRightToLeft: 1
+  m_fontAsset: {fileID: 11400000, guid: cf234e2bf0ded694e9f798a33a570e1d, type: 2}
+  m_sharedMaterial: {fileID: 21898407008693888, guid: cf234e2bf0ded694e9f798a33a570e1d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -625,6 +630,13 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
+  preserveNumbers: 0
+  farsi: 1
+  originalText: 'ssa
+
+'
+  fixTags: 1
+  forceFix: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &220804370
@@ -756,9 +768,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 268866399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: b9839c2d141529145a431aef4d757ff3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_EditorClassIdentifier: RTLTMPro::RTLTMPro.RTLTextMeshPro
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -770,9 +782,9 @@ MonoBehaviour:
   m_text: 'Salam
 
 '
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_isRightToLeft: 1
+  m_fontAsset: {fileID: 11400000, guid: cf234e2bf0ded694e9f798a33a570e1d, type: 2}
+  m_sharedMaterial: {fileID: 21898407008693888, guid: cf234e2bf0ded694e9f798a33a570e1d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -838,6 +850,13 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
+  preserveNumbers: 0
+  farsi: 1
+  originalText: 'Salam
+
+'
+  fixTags: 1
+  forceFix: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &268866402
@@ -987,9 +1006,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 460684644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: b9839c2d141529145a431aef4d757ff3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_EditorClassIdentifier: RTLTMPro::RTLTMPro.RTLTextMeshPro
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -1001,9 +1020,9 @@ MonoBehaviour:
   m_text: 'Salam
 
 '
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_isRightToLeft: 1
+  m_fontAsset: {fileID: 11400000, guid: cf234e2bf0ded694e9f798a33a570e1d, type: 2}
+  m_sharedMaterial: {fileID: 21898407008693888, guid: cf234e2bf0ded694e9f798a33a570e1d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1069,6 +1088,13 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
+  preserveNumbers: 0
+  farsi: 1
+  originalText: 'Salam
+
+'
+  fixTags: 1
+  forceFix: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &460684647
@@ -1253,9 +1279,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 761826259}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: b9839c2d141529145a431aef4d757ff3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_EditorClassIdentifier: RTLTMPro::RTLTMPro.RTLTextMeshPro
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -1265,9 +1291,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Button
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_isRightToLeft: 1
+  m_fontAsset: {fileID: 11400000, guid: cf234e2bf0ded694e9f798a33a570e1d, type: 2}
+  m_sharedMaterial: {fileID: 21898407008693888, guid: cf234e2bf0ded694e9f798a33a570e1d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1333,6 +1359,11 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
+  preserveNumbers: 0
+  farsi: 1
+  originalText: Button
+  fixTags: 1
+  forceFix: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &761826262
@@ -1389,9 +1420,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 870532750}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: b9839c2d141529145a431aef4d757ff3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_EditorClassIdentifier: RTLTMPro::RTLTMPro.RTLTextMeshPro
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -1403,9 +1434,9 @@ MonoBehaviour:
   m_text: 'ssa
 
 '
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_isRightToLeft: 1
+  m_fontAsset: {fileID: 11400000, guid: cf234e2bf0ded694e9f798a33a570e1d, type: 2}
+  m_sharedMaterial: {fileID: 21898407008693888, guid: cf234e2bf0ded694e9f798a33a570e1d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1471,6 +1502,13 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
+  preserveNumbers: 0
+  farsi: 1
+  originalText: 'ssa
+
+'
+  fixTags: 1
+  forceFix: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &870532753
@@ -1907,9 +1945,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1078282911}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: b9839c2d141529145a431aef4d757ff3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_EditorClassIdentifier: RTLTMPro::RTLTMPro.RTLTextMeshPro
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -1921,9 +1959,9 @@ MonoBehaviour:
   m_text: 'ssa
 
 '
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_isRightToLeft: 1
+  m_fontAsset: {fileID: 11400000, guid: cf234e2bf0ded694e9f798a33a570e1d, type: 2}
+  m_sharedMaterial: {fileID: 21898407008693888, guid: cf234e2bf0ded694e9f798a33a570e1d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1989,6 +2027,13 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
+  preserveNumbers: 0
+  farsi: 1
+  originalText: 'ssa
+
+'
+  fixTags: 1
+  forceFix: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1078282914
@@ -2114,11 +2159,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Core.GameManager
   database: {fileID: 11400000, guid: e4489679eb5da468a9385de05a051b87, type: 2}
-  activeProfile: {fileID: 11400000, guid: a3d957fec98ce459a8f3cfdd01593fb3, type: 2}
+  activeProfile: {fileID: 11400000, guid: 215f5ccb39e904e57b29ceccfdc2263f, type: 2}
   miniGameRunner: {fileID: 1157227807}
   dataLogger: {fileID: 1157227808}
   storyRunner: {fileID: 1157227811}
-  startingScenario: {fileID: 11400000, guid: 09e3c3e38c39d4042bea42ab2949eae5, type: 2}
+  startingScenario: {fileID: 11400000, guid: 82f38fbf17de483587db61aaefef2161, type: 2}
 --- !u!114 &1157227810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2132,7 +2177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Core.AppManager
   gameManager: {fileID: 1157227809}
-  sessionManager: {fileID: 0}
+  sessionManager: {fileID: 1157227812}
   splashScreen: {fileID: 914898490}
   loadingScreen: {fileID: 387929255}
   introScreen: {fileID: 939796401}
@@ -2155,7 +2200,7 @@ MonoBehaviour:
   choiceUI: {fileID: 1349738283}
   gameManager: {fileID: 1157227809}
   dataLogger: {fileID: 1157227808}
-  exportManager: {fileID: 0}
+  exportManager: {fileID: 1157227815}
 --- !u!114 &1157227812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2168,8 +2213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ccbd518f5ed4349bb3c709ad74f3681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Core.SessionManager
-  gameManager: {fileID: 0}
-  dataLogger: {fileID: 0}
+  gameManager: {fileID: 1157227809}
+  dataLogger: {fileID: 1157227808}
   testParticipantInfo:
     participantId: P001
     groupLabel: test
@@ -2212,9 +2257,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd19bd3a28d249cea78421dc7268b880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Data.ExportManager
-  dataLogger: {fileID: 0}
-  jsonExporter: {fileID: 0}
-  csvExporter: {fileID: 0}
+  dataLogger: {fileID: 1157227808}
+  jsonExporter: {fileID: 1157227813}
+  csvExporter: {fileID: 1157227814}
   exportJson: 1
   exportCsv: 1
 --- !u!1 &1170810367
@@ -2470,9 +2515,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1360672247}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: b9839c2d141529145a431aef4d757ff3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_EditorClassIdentifier: RTLTMPro::RTLTMPro.RTLTextMeshPro
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -2482,9 +2527,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Button
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_isRightToLeft: 1
+  m_fontAsset: {fileID: 11400000, guid: cf234e2bf0ded694e9f798a33a570e1d, type: 2}
+  m_sharedMaterial: {fileID: 21898407008693888, guid: cf234e2bf0ded694e9f798a33a570e1d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2550,6 +2595,11 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
+  preserveNumbers: 0
+  farsi: 1
+  originalText: Button
+  fixTags: 1
+  forceFix: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1360672250
@@ -2712,9 +2762,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1522300953}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: b9839c2d141529145a431aef4d757ff3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_EditorClassIdentifier: RTLTMPro::RTLTMPro.RTLTextMeshPro
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -2726,9 +2776,9 @@ MonoBehaviour:
   m_text: 'ssa
 
 '
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_isRightToLeft: 1
+  m_fontAsset: {fileID: 11400000, guid: cf234e2bf0ded694e9f798a33a570e1d, type: 2}
+  m_sharedMaterial: {fileID: 21898407008693888, guid: cf234e2bf0ded694e9f798a33a570e1d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2794,6 +2844,13 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
+  preserveNumbers: 0
+  farsi: 1
+  originalText: 'ssa
+
+'
+  fixTags: 1
+  forceFix: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1522300956
@@ -3139,9 +3196,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1978131175}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: b9839c2d141529145a431aef4d757ff3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_EditorClassIdentifier: RTLTMPro::RTLTMPro.RTLTextMeshPro
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -3153,9 +3210,9 @@ MonoBehaviour:
   m_text: 'ssa
 
 '
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_isRightToLeft: 1
+  m_fontAsset: {fileID: 11400000, guid: cf234e2bf0ded694e9f798a33a570e1d, type: 2}
+  m_sharedMaterial: {fileID: 21898407008693888, guid: cf234e2bf0ded694e9f798a33a570e1d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3221,6 +3278,13 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
+  preserveNumbers: 0
+  farsi: 1
+  originalText: 'ssa
+
+'
+  fixTags: 1
+  forceFix: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1978131178
