@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using NeuroQuest.Core;
 using NeuroQuest.Data;
 using NeuroQuest.Dialogue;
@@ -20,6 +21,7 @@ namespace NeuroQuest.Story
         private StoryScenario currentScenario;
         private int currentStepIndex;
         private bool isRunning;
+        private Action currentScenarioCompleted;
 
         private void Awake()
         {
@@ -45,6 +47,11 @@ namespace NeuroQuest.Story
 
         public void StartStory(StoryScenario scenario)
         {
+            StartScenario(scenario, null);
+        }
+
+        public void StartScenario(StoryScenario scenario, Action onCompleted)
+        {
             ResolveServices();
 
             if (!ValidateBaseReferences())
@@ -61,6 +68,7 @@ namespace NeuroQuest.Story
             currentScenario = scenario;
             currentStepIndex = 0;
             isRunning = true;
+            currentScenarioCompleted = onCompleted;
 
             dataLogger.LogSimpleEvent(
                 "story_started",
@@ -151,7 +159,12 @@ namespace NeuroQuest.Story
                 return;
             }
 
-            dialogueUI.Show(step.DialogueText, GoToNextStep);
+            dialogueUI.Show(
+                step.SpeakerName,
+                step.DialogueText,
+                step.Portrait,
+                step.ContinueButtonText,
+                GoToNextStep);
         }
 
         private void RunMiniGameStep(MiniGameStoryStepAsset step)
@@ -244,7 +257,7 @@ namespace NeuroQuest.Story
                     if (selectedOption.HasNextScenario)
                     {
                         EndCurrentScenarioBeforeTransition(selectedOption.NextScenario, "choice");
-                        StartStory(selectedOption.NextScenario);
+                        StartScenario(selectedOption.NextScenario, currentScenarioCompleted);
                     }
                     else
                     {
@@ -266,7 +279,13 @@ namespace NeuroQuest.Story
             if (step.HasNextScenario)
             {
                 EndCurrentScenarioBeforeTransition(step.NextScenario, "end_step");
-                StartStory(step.NextScenario);
+                StartScenario(step.NextScenario, currentScenarioCompleted);
+                return;
+            }
+
+            if (step.EndingMode == StoryEndingMode.ReturnToWorld)
+            {
+                EndScenarioAndReturnToWorld();
                 return;
             }
 
@@ -329,6 +348,8 @@ namespace NeuroQuest.Story
             }
 
             isRunning = false;
+            Action callback = currentScenarioCompleted;
+            currentScenarioCompleted = null;
 
             if (currentScenario != null)
             {
@@ -342,6 +363,7 @@ namespace NeuroQuest.Story
             }
 
             Debug.Log("StoryRunner: Story ended.");
+            callback?.Invoke();
             dataLogger.PrintSessionSummary();
 
             if (exportManager == null)
@@ -357,6 +379,35 @@ namespace NeuroQuest.Story
             {
                 Debug.LogWarning("StoryRunner: ExportManager is not assigned and not registered. Session was not exported.");
             }
+        }
+
+        private void EndScenarioAndReturnToWorld()
+        {
+            if (!isRunning)
+            {
+                return;
+            }
+
+            isRunning = false;
+            Action callback = currentScenarioCompleted;
+            currentScenarioCompleted = null;
+
+            if (currentScenario != null)
+            {
+                dataLogger.LogSimpleEvent(
+                    "story_scenario_returned_to_world",
+                    "",
+                    "",
+                    Field.Of("scenarioId", currentScenario.ScenarioId),
+                    Field.Of("scenarioName", currentScenario.DisplayName)
+                );
+            }
+
+            dialogueUI.Hide();
+            choiceUI?.Hide();
+
+            Debug.Log("StoryRunner: Scenario returned to world.");
+            callback?.Invoke();
         }
 
         private bool ValidateBaseReferences()

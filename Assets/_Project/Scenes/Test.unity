@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
   m_Navigation:
     m_Mode: 3
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
     m_Mode: 3
@@ -3182,6 +3182,7 @@ RectTransform:
   - {fileID: 939796400}
   - {fileID: 1628943215}
   - {fileID: 1349738282}
+  - {fileID: 2024062002}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3741,8 +3742,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Dialogue.DialogueUI
   root: {fileID: 1628943214}
+  speakerNameText: {fileID: 0}
   dialogueText: {fileID: 1078282913}
+  portraitImage: {fileID: 0}
   continueButton: {fileID: 914758682}
+  continueButtonText: {fileID: 104349569}
+  defaultContinueButtonText: "\u0627\u062F\u0627\u0645\u0647"
 --- !u!1 &1657696646
 GameObject:
   m_ObjectHideFlags: 0
@@ -3829,6 +3834,7 @@ GameObject:
   - component: {fileID: 1776451341}
   - component: {fileID: 1776451343}
   - component: {fileID: 1776451342}
+  - component: {fileID: 1776451344}
   m_Layer: 0
   m_Name: WordMemoryNPC
   m_TagString: Untagged
@@ -3881,7 +3887,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -3897,6 +3903,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1776451344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776451340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9da39d694ea4e9dbc4363b41161b4c7, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.World.StoryInteractionTrigger
+  scenario: {fileID: 0}
+  promptUI: {fileID: 2024062003}
+  playerController: {fileID: 1538889938}
+  promptText: "\u0628\u0631\u0627\u06CC \u0635\u062D\u0628\u062A \u06A9\u0631\u062F\u0646\u060C E \u0631\u0627 \u0641\u0634\u0627\u0631 \u0628\u062F\u0647"
 --- !u!212 &1776451343
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4429,6 +4451,58 @@ Transform:
   - {fileID: 2001264062}
   m_Father: {fileID: 2003739950}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2024062001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2024062002}
+  - component: {fileID: 2024062003}
+  m_Layer: 5
+  m_Name: InteractionPrompt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2024062002
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024062001}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1465195766}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2024062003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024062001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 401465bb73d343ea930854c8792e3162, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.UI.InteractionPromptUI
+  root: {fileID: 2024062001}
+  promptText: {fileID: 0}
+  defaultPrompt: "\u0628\u0631\u0627\u06CC \u0635\u062D\u0628\u062A \u06A9\u0631\u062F\u0646\u060C E \u0631\u0627 \u0641\u0634\u0627\u0631 \u0628\u062F\u0647"
+  fontAsset: {fileID: 11400000, guid: cf234e2bf0ded694e9f798a33a570e1d, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

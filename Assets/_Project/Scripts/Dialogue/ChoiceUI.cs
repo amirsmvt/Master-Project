@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using NeuroQuest.Story;
-using TMPro;
+using RTLTMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,11 +11,11 @@ namespace NeuroQuest.Dialogue
     {
         [Header("References")]
         [SerializeField] private GameObject root;
-        [SerializeField] private TextMeshProUGUI questionText;
+        [SerializeField] private RTLTextMeshPro questionText;
 
         [Header("Choice Buttons")]
         [SerializeField] private List<Button> optionButtons = new();
-        [SerializeField] private List<TextMeshProUGUI> optionTexts = new();
+        [SerializeField] private List<RTLTextMeshPro> optionTexts = new();
 
         private Action<ChoiceOption> onOptionSelected;
         private readonly List<ChoiceOption> currentOptions = new();
