@@ -1,6 +1,7 @@
 using System.Collections;
 using NeuroQuest.Services;
 using NeuroQuest.UI;
+using NeuroQuest.World;
 using UnityEngine;
 
 namespace NeuroQuest.Core
@@ -16,12 +17,19 @@ namespace NeuroQuest.Core
         [SerializeField] private LoadingScreenUI loadingScreen;
         [SerializeField] private UIScreen introScreen;
 
+        [Header("World")]
+        [SerializeField] private GameObject worldRoot;
+        [SerializeField] private PlayerController2D playerController;
+        [SerializeField] private bool startStoryOnBoot = true;
+
         [Header("Timing")]
         [SerializeField] private float splashDuration = 1.5f;
         [SerializeField] private float loadingDuration = 1.5f;
         [SerializeField] private float introDuration = 1.5f;
 
         public AppState CurrentState { get; private set; } = AppState.None;
+
+        private bool sessionStarted;
 
         private void Awake()
         {
@@ -37,6 +45,7 @@ namespace NeuroQuest.Core
                 return;
             }
 
+            PrepareWorldForStartup();
             StartCoroutine(BootSequence());
         }
 
@@ -119,15 +128,64 @@ namespace NeuroQuest.Core
                 introScreen.Hide();
             }
 
-            StartGameFlow();
+            if (startStoryOnBoot)
+            {
+                StartGameFlow();
+            }
+            else
+            {
+                EnterWorld();
+            }
         }
 
         private void StartGameFlow()
         {
             SetState(AppState.Story);
 
-            sessionManager.StartTestSession();
+            StartSessionIfNeeded();
             gameManager.StartStory();
+        }
+
+        private void EnterWorld()
+        {
+            HideAllScreens();
+            StartSessionIfNeeded();
+
+            if (worldRoot != null)
+            {
+                worldRoot.SetActive(true);
+            }
+
+            if (playerController != null)
+            {
+                playerController.SetMovementEnabled(true);
+            }
+
+            SetState(AppState.World);
+        }
+
+        private void StartSessionIfNeeded()
+        {
+            if (sessionStarted)
+            {
+                return;
+            }
+
+            sessionManager.StartTestSession();
+            sessionStarted = true;
+        }
+
+        private void PrepareWorldForStartup()
+        {
+            if (playerController != null)
+            {
+                playerController.SetMovementEnabled(false);
+            }
+
+            if (!startStoryOnBoot && worldRoot != null)
+            {
+                worldRoot.SetActive(false);
+            }
         }
 
         private void SetState(AppState newState)

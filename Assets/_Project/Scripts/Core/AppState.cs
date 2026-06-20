@@ -9,6 +9,7 @@ namespace NeuroQuest.Core
         Story = 4,
         MiniGame = 5,
         Result = 6,
-        SessionEnd = 7
+        SessionEnd = 7,
+        World = 8
     }
 }
